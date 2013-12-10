@@ -1,13 +1,13 @@
 ﻿package  {
 	
 	import flash.display.MovieClip;
-	import flash.display.Sprite;
 	import flash.display.Graphics;
 	import flash.events.MouseEvent;
 	import components.Particle;
+	import flash.display.Sprite;
 	
 	
-	public class Accretion extends MovieClip {
+	public class Accretion extends Sprite {
 		
 		
 		private var _loadParticlesBtn:Sprite;
@@ -37,11 +37,22 @@
 		
 		private function handler_loadParticlesBtn_click(event:MouseEvent):void {
 			//create several (100) particles.
-			var temp:int = _particleVector.length;
+			/*var temp:int = _particleVector.length;
 			_particleVector[temp] = new Particle();
 			_particleVector[temp].x = 45;
 			_particleVector[temp].y = 45;
-			this.addChild(_particleVector[temp]);
+			this.addChild(_particleVector[temp]);*/
+			generateParticles(100);
+		}
+		
+		private function generateParticles(count:int):void {
+			var i:int = 0;
+			for (i; i<count; i++) {
+				_particleVector[i] = new Particle();
+				_particleVector[i].x = Math.random() * stage.width;
+				_particleVector[i].y = Math.random() * stage.height;
+				this.addChild(_particleVector[i]);
+			}
 		}
 	}
 	
