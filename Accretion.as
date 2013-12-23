@@ -48,7 +48,7 @@
 		private function generateParticles(count:int):void {
 			var i:int = 0;
 			for (i; i<count; i++) {
-				_particleVector[i] = new Particle();
+				_particleVector[i] = new Particle(1, 100, 0xFFFF00, 1.0);
 				_particleVector[i].x = Math.random() * stage.width;
 				_particleVector[i].y = Math.random() * stage.height;
 				this.addChild(_particleVector[i]);
